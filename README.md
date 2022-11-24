@@ -177,7 +177,7 @@ fi
 ```
 ## Database Backup
 
-This script is a pretty basic script useful in backing up the database. The script is taken from[here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
+This script is a pretty basic script useful in backing up the database. The script is taken from [here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
 
 ```
 #!/bin/sh
