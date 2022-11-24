@@ -1,4 +1,4 @@
-# Linux_AdminTools
+# Linux Administrator Tools
 Collection of admin script tools
 
 ## Disk usage
