@@ -2,7 +2,7 @@
 # set -x
 # Shell script to monitor or watch the disk space
 # It will send an email to $ADMIN, if the (free available) percentage of space is &gt;= 90%.
-# -------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
 # Set admin email so that you can get email.
 ADMIN="root"
 # set alert level 90% is default
