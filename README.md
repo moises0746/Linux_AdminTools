@@ -38,3 +38,6 @@ else
   df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
 fi
 ```
+Incremental Backup Scripts
+
+This script will do the incremental backup into an external mounted hard-drive. It is to take a backup of the /home directory. However, it can be modified to suit the requirements. The script is taken from here.
