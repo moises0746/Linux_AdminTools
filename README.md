@@ -40,7 +40,7 @@ fi
 ```
 ## Incremental Backup Scripts
 
-This script will do the incremental backup into an external mounted hard-drive. It is to take a backup of the /home directory. However, it can be modified to suit the requirements. The script is taken from here.
+This script will do the incremental backup into an external mounted hard-drive. It is to take a backup of the /home directory. However, it can be modified to suit the requirements. The script is taken from [here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
 
 ```
 #!/bin/bash
@@ -135,7 +135,7 @@ if (( $? )); then
 
 ## High CPU Usage Script
 
-At times, we need to monitor the high CPU usage in the system. We can use the below script to monitor the high CPU usage. The script is taken from here.
+At times, we need to monitor the high CPU usage in the system. We can use the below script to monitor the high CPU usage. The script is taken from [here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
 
 ```
 #!/bin/bash
@@ -153,7 +153,7 @@ done
 
 ## Adding new users to a Linux system
 
-This script allows the root user or admin to add new users to the system in an easier way by just typing the user name and password (The password is entered in an encrypted manner). The below script is taken from here.
+This script allows the root user or admin to add new users to the system in an easier way by just typing the user name and password (The password is entered in an encrypted manner). The below script is taken from [here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
 
 ```
 #!/bin/bash
@@ -174,4 +174,28 @@ else
     echo "Only root may add a user to the system"
     exit 2
 fi
+```
+## Database Backup
+
+This script is a pretty basic script useful in backing up the database. The script is taken from[here.](https://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/system.html)
+
+```
+#!/bin/sh
+now="$(date +'%d_%m_%Y_%H_%M_%S')"
+filename="db_backup_$now".gz
+backupfolder="/var/www/vhosts/example.com/httpdocs/backups"
+fullpathbackupfile="$backupfolder/$filename"
+logfile="$backupfolder/"backup_log_"$(date +'%Y_%m')".txt
+echo "mysqldump started at $(date +'%d-%m-%Y %H:%M:%S')" >> "$logfile"
+mysqldump --user=mydbuser--password=mypass --default-character-set=utf8 mydatabase | gzip > "$fullpathbackupfile"
+echo "mysqldump finished at $(date +'%d-%m-%Y %H:%M:%S')" >> "$logfile"
+chown myuser "$fullpathbackupfile"
+chown myuser "$logfile"
+echo "file permission changed" >> "$logfile"
+find "$backupfolder" -name db_backup_* -mtime +8 -exec rm {} \;
+echo "old files deleted" >> "$logfile"
+echo "operation finished at $(date +'%d-%m-%Y %H:%M:%S')" >> "$logfile"
+echo "*****************" >> "$logfile"
+exit 0
+
 ```
